@@ -3,7 +3,7 @@ var $recipeList = $(".recipe-list"); // search for recipes form
 var recipesApp = function () {
     var recipes = [];
     var savedRecipes = [];
-  
+
     function findRecipe(text) {
         var url = 'recipes?recipe=' + text;
         $.ajax({
@@ -40,24 +40,36 @@ var recipesApp = function () {
         });
     }
 
+    function popularRecipes() {
+        $.ajax({
+            method: "GET",
+            url: 'popular',
+            success: function (data) {
+                savedRecipes = data;
+                _renderPopular();
 
-  function popularRecipes() {
-
-    $.ajax({
-      method: "GET",
-      url: 'popular',
-      success: function (data) {
-        savedRecipes = data;
-        _renderPopular();
-
-      }, error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus);
-      }
-    });
+            }, error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        });
     };
 
+    // function deletePopularRecipe(index) {
+    //     $.ajax({
+    //         type: 'DELETE',
+    //         url: '/recipes' + recipes[index]._id,
+    //         success: function (data) {
+    //             savedRecipes.splice(index, 1);
+    //             renderPage();
+    //         },
+    //         error: function (jqXHR, textStatus, errorThrown) {
+    //             console.log(textStatus);
+    //         }
+    //     });
+    // }
+
     // goes through the recipes array and puts them on the screen, using the handlebars template
-  function _renderPage() {
+    function _renderPage() {
         $recipeList.empty();
         var source = $('#recipe-template').html();
         var template = Handlebars.compile(source);
@@ -65,100 +77,53 @@ var recipesApp = function () {
         var newHTML = template(recipeData);
         $('.recipe-list').append(newHTML);
 
-      }
-    });
-  }
+    }
 
-  function _renderPopular(){
+    function _renderPopular() {
+        $(".popular-recipes").empty();
+        var source = $('#popular-template').html();
+        var template = Handlebars.compile(source);
+        var popularData = { "popularArray": savedRecipes };
+        var newHTML = template(popularData);
+        $('.popular-recipes').append(newHTML);
 
-    $(".popular-recipes").empty();
-    var source = $('#popular-template').html();
-    var template = Handlebars.compile(source);
-    var popularData = { "popularArray": savedRecipes };
-    var newHTML = template(popularData);
-    $('.popular-recipes').append(newHTML);
+    }
 
-  }    
-
-
-  return {
-
-    findRecipe: findRecipe,
-    likeRecipe: likeRecipe,
-    // deletePopularRecipe: deletePopularRecipe
-  }
-}
-
-var deletePopularRecipe = function(index) {
-  $.ajax ({
-    type: 'DELETE',
-    url: '/recipes' + recipes[index]._id,
-    success: function (data) {
-      savedRecipes.splice(index, 1);
-      renderPage();
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(textStatus);
-  }
-  })
+    return {
+        findRecipe: findRecipe,
+        likeRecipe: likeRecipe,
+        popularRecipes: popularRecipes//,
+        // deletePopularRecipe: deletePopularRecipe
+    }
 }
 
 var app = recipesApp();
 
 // click button "get recipes": 
 $(".main-btn").on('click', function () {
-  var $input = $(".main-input");
-  if ($input.val() === "") {
-    alert("Please enter text");
-  }
-  else {
-    app.findRecipe($input.val());
-    $input.val("");
-  }
+    var $input = $(".main-input");
+    if ($input.val() === "") {
+        alert("Please enter text");
+    }
+    else {
+        app.findRecipe($input.val());
+        $input.val("");
+    }
 })
 
 $recipeList.on('click', '.like-button', function () {
-  var index = $(this).closest('.recipe-container').index();
-  app.likeRecipe(index);
+    var index = $(this).closest('.recipe-container').index();
+    app.likeRecipe(index);
 });
 
 
-$recipeList.on('click', '.remove-recipe', function() {
-  var index = $(this).closest('.reacipe-containter').index();
-  app.deletePopularRecipe(index);
-})
-
-      findRecipe: findRecipe,
-      likeRecipe: likeRecipe,
-      popularRecipes: popularRecipes
-    };
-  };
-
-  
-
-  var app = recipesApp();
-
-  // click button "get recipes": 
-  $(".main-btn").on('click', function () {
-    var $input = $(".main-input");
-    if ($input.val() === "") {
-      alert("Please enter text");
-    }
-    else {
-      app.findRecipe($input.val());
-      $input.val("");
-    }
-  })
-
-  $recipeList.on('click', '.like-button', function () {
+$recipeList.on('click', '.remove-recipe', function () {
     var index = $(this).closest('.recipe-container').index();
-    app.likeRecipe(index);
-  });
+    app.deletePopularRecipe(index);
+});
 
-  //click for popular recipes
+//click for popular recipes
 
-  $(".find-popular").on('click', function () {
-
+$(".find-popular").on('click', function () {
     app.popularRecipes();
-
-  });
+});
