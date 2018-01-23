@@ -100,6 +100,7 @@ var app = recipesApp();
 
 // click button "get recipes": 
 $(".main-btn").on('click', function () {
+    $(".recipe-row").toggleClass('show');
     var $input = $(".main-input");
     if ($input.val() === "") {
         alert("Please enter text");
@@ -116,6 +117,7 @@ $recipeList.on('click', '.like-button', function () {
 });
 
 $(".find-popular").on('click', function () {
+    $(".popular-row").toggleClass('show');
     app.popularRecipes();
 });
 

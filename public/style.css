@@ -7,8 +7,8 @@ header {
     background-image: url("new-image-hack.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-  
-    height: 800px;;
+    height: 100vh;
+    /* height: 800px;; */
     
   /* -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
@@ -56,9 +56,19 @@ h2 {
     width: 100%;
 }
 
-.popular-row {
+.recipe-row {
+    min-height: 800px;
+    display: none;
+}
 
+.popular-row {
     background-color: #c5b595;
+    min-height: 800px;
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .recipe-list {
