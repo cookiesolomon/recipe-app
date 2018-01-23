@@ -55,7 +55,7 @@ h2 {
     width: 100%;
 }
 
-.recipe-row {
+/* to fix the clicking twice on button to get to section--.recipe-row {
     min-height: 800px;
     display: none;
 }
@@ -68,7 +68,7 @@ h2 {
 
 .show {
     display: block;
-}
+}   -- */
 
 .recipe-list {
     text-align: center;

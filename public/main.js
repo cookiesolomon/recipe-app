@@ -100,7 +100,7 @@ var app = recipesApp();
 
 // click button "get recipes": 
 $(".main-btn").on('click', function () {
-    $(".recipe-row").toggleClass('show');
+    // $(".recipe-row").toggleClass('show');
     var $input = $(".main-input");
     if ($input.val() === "") {
         alert("Please enter text");
@@ -114,11 +114,11 @@ $(".main-btn").on('click', function () {
 $recipeList.on('click', '.like-button', function () {
     var index = $(this).closest('.recipe-container').index();
     app.likeRecipe(index);
-    app.popularRecipes();
+    // app.popularRecipes();
 });
 
 $(".find-popular").on('click', function () {
-    $(".popular-row").toggleClass('show');
+    // $(".popular-row").toggleClass('show');
     app.popularRecipes();
 });
 
