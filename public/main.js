@@ -114,6 +114,7 @@ $(".main-btn").on('click', function () {
 $recipeList.on('click', '.like-button', function () {
     var index = $(this).closest('.recipe-container').index();
     app.likeRecipe(index);
+    app.popularRecipes();
 });
 
 $(".find-popular").on('click', function () {
