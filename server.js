@@ -41,7 +41,7 @@ app.get('/recipes', function (req, res) {
         // error 403 = no results found
         } else if (response.statusCode == 403) {
             res.send([]);
-        // error 401 = problem with API website
+        // error 401 = problem with API website (send dummy-data)
         } else if (response.statusCode == 401) {
             res.send(
                 [{

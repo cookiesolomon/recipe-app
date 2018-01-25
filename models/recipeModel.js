@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var RecipeSchema = new mongoose.Schema({
     url: String,
     title: String,

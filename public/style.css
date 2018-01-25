@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     background-color: #F3F3EB;
     min-width: 400px;
@@ -32,14 +33,16 @@ p {
 }
 
 .main {
-    padding-top: 400px;
+    padding-top: 300px;
 }
 
-.wrapper{
-    margin-top:1.5em;
-    font-family:  'Raleway', sans-serif;
-  }
- a,  a:visited, a:hover, a:active{
+.wrapper {
+    margin-top: 1.5em;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* find recipe and popular recipe buttons */
+a, a:visited, a:hover, a:active {
     -webkit-backface-visibility:hidden;
     backface-visibility:hidden;
     position:relative;
@@ -47,87 +50,97 @@ p {
     text-decoration:none;
     color:#fff;
     font-size:0.5em;
-  }
- a:hover{
-      color:#fff
-  }
-a.before:before, a.after:after{
+}
+
+a:hover {
+    color:#fff;
+}
+
+a.before:before, a.after:after {
     content: "";
-    transition:0.5s all ease;
-    -webkit-backface-visibility:hidden;
-            backface-visibility:hidden;
-    position:absolute;
-  }
-a.before:before{
-    top:-0.25em;
-  }
-  a.after:after{
-    bottom:-0.25em;
-  }
-  a.before:before, a.after:after{
-    height:5px;
-   height:0.15rem;
-    width:0;
-    background:#fff;
-  }
+    transition: 0.5s all ease;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    position: absolute;
+}
+
+a.before:before {
+    top: -0.25em;
+}
+
+a.after:after {
+    bottom: -0.25em;
+}
+
+a.before:before, a.after:after {
+    height: 5px;
+    height: 0.15rem;
+    width: 0;
+    background: #fff;
+}
   
-a.before:hover:before, a.after:hover:after{
-    width:100%;
-  }
-  .square{
-    box-sizing:border-box;
-    margin-left:-0.4em;
-    position:relative;
-    font-size:16px;
-    overflow:hidden;
-    padding:15px 10px;
+a.before:hover:before, a.after:hover:after {
+    width: 100%;
+}
+
+.square {
+    box-sizing: border-box;
+    margin-left: -0.4em;
+    position: relative;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 15px 10px;
     letter-spacing: 1.5px;
-  
-  }
-  .square a{
-    position:static;
-    font-size:100%;
-    padding:7px 11px;
+}
+
+.square a {
+    position: static;
+    font-size: 100%;
+    padding: 7px 11px;
     border: 2px solid white;
     color: white;
-  }
-  .square:before,.square:after{
+}
+
+.square:before, .square:after {
     content: "";
-    box-sizing:border-box;
-    transition:0.25s all ease;
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-    position:absolute;
-    width:5px;
-    width:0.15rem;
-    height:0;
-    background:#fff;
-  }
-  .square:before{
-    left:0;
-    bottom:-0.2em;
-  }
+    box-sizing: border-box;
+    transition: 0.25s all ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 5px;
+    width: 0.15rem;
+    height: 0;
+    background: #fff;
+}
+
+.square:before {
+    left: 0;
+    bottom: -0.2em;
+}
  
-  .square:after{
-    right:0;
-    top:-0.2em;
-  }
+.square:after {
+    right: 0;
+    top: -0.2em;
+}
 
-  .square a:before{
-    left:0;
-    transition:0.25s all ease;
-  }
-  .square a:after{
-    right:0;
-    transition:0.25s all ease;
-  }
+.square a:before {
+    left: 0;
+    transition: 0.25s all ease;
+}
 
-  .square:hover:before,.square:hover:after{
-    height:calc(100% + 0.4em);
-  }
-  .square:hover a:before,.square:hover a:after{
-    width:100%;
-  }
+.square a:after {
+    right: 0;
+    transition: 0.25s all ease;
+}
+
+.square:hover:before,.square:hover:after {
+    height: calc(100% + 0.4em);
+}
+
+.square:hover a:before, .square:hover a:after {
+    width: 100%;
+}
 
 .main-input {
     border-radius: 5px;
@@ -145,7 +158,6 @@ a.before:hover:before, a.after:hover:after{
 
 .popular-row {
     background-color: #F3F3EB;
-
 }
 
 .recipe-list {
@@ -155,9 +167,7 @@ a.before:hover:before, a.after:hover:after{
     min-height: 1px;
 }
 
-
 .list {
-
     margin-left: 0;
     padding-left: 0;
     margin-bottom: 20px;
@@ -197,7 +207,6 @@ a.before:hover:before, a.after:hover:after{
     width: 100%;
 }
 
-
 .list:hover img {
     opacity: .5;
 }
@@ -213,7 +222,6 @@ a {
     text-overflow: ellipsis;
     max-width: 270px;
 }
-
 
 .like-button, .dislike-button {
     padding: 0 10px;
@@ -236,7 +244,6 @@ select {
     padding-left: 7px;
 }
 
-
 .down {
     color: white;
     transform: rotate(45deg);
@@ -254,21 +261,18 @@ select, options {
     margin-bottom: 10px;
 }
 
-.fa-thumbs-o-up {
-  
-    bottom:30px;
-    right:5px;
+.fa-thumbs-o-up {  
+    bottom: 30px;
+    right: 5px;
 }
 
 .fa-thumbs-o-down {
-    
-    bottom:30px;
-    right:30px;
+    bottom: 30px;
+    right: 30px;
 }
 
 .find-popular {
     margin-top: 7px;
-
 }
 
 .thumbs {
@@ -282,7 +286,6 @@ select, options {
 .likes {
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
-    
 }
 
 .spinner {
@@ -300,7 +303,6 @@ select, options {
 .show {
     display: block;
 }
-
 
 @media (max-width: 767px) {
     .list img {
@@ -330,8 +332,8 @@ select, options {
     margin-bottom: 10px;
     height: auto;
     text-align: center;
-    }
+}
 
-    .footer {
+.footer {
     padding-top: 15px;
-    }
+}
